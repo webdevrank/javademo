@@ -63,7 +63,6 @@ phases:
 artifacts:
   files:
     - imageDetail.json
-    - target/javademo.jar
     - appspec.yml
     - taskdef.json
   #name: $(date +%Y-%m-%d)
