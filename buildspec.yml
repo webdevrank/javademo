@@ -51,8 +51,8 @@ phases:
       - echo Pushing image to ECR
       - docker push $REPO_URI:latest
       - docker push $REPO_URI:$IMAGE_TAG
-      - echo Writing imagedefinitions file
-      - printf '[{"name":"java-demo","imageUri":"%s"}]' $REPO_URI:$IMAGE_TAG > imagedefinitions.json
+      - echo Writing imageDetail file
+      - printf '{"ImageURI":"%s"}' $REPO_URI:$IMAGE_TAG > imageDetail.json
 #reports:
   #report-name-or-arn:
     #files:
