@@ -51,8 +51,8 @@ phases:
       - echo Pushing image to ECR
       - docker push $REPO_URI:latest
       - docker push $REPO_URI:$IMAGE_TAG
-      - echo Writing imageDetail file
-      - printf '{"ImageURI":"%s"}' $REPO_URI:$IMAGE_TAG > imageDetail.json
+      - echo Writing imagedefinitions file
+      - printf '[{'[{"name":"java-demo","imageUri":"%s"}]' $REPO_URI:$IMAGE_TAG > imagedefinitions.json
 #reports:
   #report-name-or-arn:
     #files:
@@ -63,9 +63,7 @@ phases:
     #file-format: JunitXml | CucumberJson
 artifacts:
   files:
-    - imageDetail.json
-    - appspec.yml
-    - taskdef.json
+    - imagedefinitions.json
   #name: $(date +%Y-%m-%d)
   #discard-paths: yes
   #base-directory: location
